@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JobAudit {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -35,8 +34,17 @@ public class JobAudit {
 	@Column(name = "TOTAL_WRITTEN")
 	private Long totalWritten;
 
+	@Column(name = "TOTAL_SKIPPED")
+	private Long totalSkipped;
+
 	@Column(name = "TOTAL_FAILED")
 	private Long totalFailed;
+
+	@Column(name = "TOTAL_CUSTOMERS_PROCESSED")
+	private Long totalCustomersProcessed;
+
+	@Column(name = "TOTAL_ERROR_LOGS")
+	private Long totalErrorLogs;
 
 	@Column(name = "START_TIME")
 	private LocalDateTime startTime;

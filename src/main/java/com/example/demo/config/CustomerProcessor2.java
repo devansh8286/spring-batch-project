@@ -11,8 +11,8 @@ import com.example.demo.helper.ValidationResult;
 import com.example.demo.repository.CustomerLogsRepository;
 import com.example.demo.service.CustomerValidationService;
 
-public class CustomerProcessor implements ItemProcessor<Customer, Customer> {
-	private static final Logger logger = LoggerFactory.getLogger(CustomerProcessor.class);
+public class CustomerProcessor2 implements ItemProcessor<Customer, Customer> {
+	private static final Logger logger = LoggerFactory.getLogger(CustomerProcessor2.class);
 
 	@Autowired
 	private CustomerValidationService validationService;

@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.batch.core.ChunkListener;
@@ -39,6 +40,7 @@ public class StepChunkListener implements ChunkListener {
 			long readCount = stepExecution.getReadCount();
 			long writeCount = stepExecution.getWriteCount();
 			long skipCount = stepExecution.getWriteSkipCount();
+			List<Throwable> failureExceptions = stepExecution.getFailureExceptions();
 
 			JobAudit chunkAudit = new JobAudit();
 			chunkAudit.setJobName(stepExecution.getJobExecution().getJobInstance().getJobName());
@@ -51,12 +53,7 @@ public class StepChunkListener implements ChunkListener {
 			jobAuditRepository.save(chunkAudit);
 
 			System.out.println("Audit saved for commit count: " + commitCount);
-			System.out.println("--------------------------");
-			System.out.println("readCount : " + readCount);
-			System.out.println("writeCount : " + writeCount);
-			System.out.println("skipCount : " + skipCount);
-			System.out.println("--------------------------");
-
+	
 		}
 
 		System.out.println("commitCount : " + commitCount);

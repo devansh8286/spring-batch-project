@@ -19,8 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.task.SimpleAsyncTaskExecutor;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.validation.BindException;
 
@@ -90,24 +88,40 @@ public class SpringBatchConfig {
 		return writer;
 	}
 
+	
 	Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager,
 	        StepChunkListener stepChunkListener, CustomSkipListener customSkipListener) {
 	    return new StepBuilder("csv-step", jobRepository)
-	        .<Customer, Customer>chunk(10, transactionManager)  // Increased chunk size
+	        .<Customer, Customer>chunk(2, transactionManager)
 	        .listener(stepChunkListener)
 	        .listener(customSkipListener)
 	        .reader(reader())
 	        .processor(processor())
 	        .writer(writer())
 	        .faultTolerant()
-	        .skip(FlatFileParseException.class)    // Handle parsing errors
-	        .skip(IllegalArgumentException.class)  // Handle validation errors
-	        .skip(Exception.class)                 // Catch-all for other exceptions
-	        .skipLimit(100)                        // Increased skip limit
-	        .noSkip(RuntimeException.class)        // Prevent skipping runtime exceptions
+	        .skip(FlatFileParseException.class)
+	        .skip(IllegalArgumentException.class)
+	        .skip(NumberFormatException.class)
+	        .skip(Exception.class)
+	        .skipLimit(100)  
+	        .noSkip(RuntimeException.class)
 	        .build();
 	}
-
+	
+	/*
+	 * Step step1(JobRepository jobRepository, PlatformTransactionManager
+	 * transactionManager, StepChunkListener stepChunkListener, CustomSkipListener
+	 * customSkipListener) { return new StepBuilder("csv-step",
+	 * jobRepository).<Customer, Customer>chunk(10, transactionManager) // Increased
+	 * // chunk // size
+	 * .listener(stepChunkListener).listener(customSkipListener).reader(reader()).
+	 * processor(processor())
+	 * .writer(writer()).faultTolerant().skip(FlatFileParseException.class) //
+	 * Handle parsing errors .skip(IllegalArgumentException.class) // Handle
+	 * validation errors .skip(Exception.class) // Catch-all for other exceptions
+	 * .skipLimit(100) // Increased skip limit .noSkip(RuntimeException.class) //
+	 * Prevent skipping runtime exceptions .build(); }
+	 */
 	@Bean
 	public Job runJob(JobRepository jobRepository, PlatformTransactionManager transactionManager,
 			JobCompletionListener jobListener, StepChunkListener stepChunkListener,
