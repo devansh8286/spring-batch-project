@@ -12,12 +12,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "CUSTOMERS_INFO")
+@Table(name = "CUSTOMERS_INFO_LOGS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Customer {
+public class CustomerLogs {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,11 +36,13 @@ public class Customer {
 	@Column(name = "GENDER")
 	private String gender;
 	@Column(name = "CONTACT")
-	private int contactNo;
+	private String contactNo;
 	@Column(name = "COUNTRY")
 	private String country;
 	@Column(name = "DOB")
 	private String dob;
-
-	
+	@Column(name = "reason")
+	private String reason;
+	@Column(name = "row_Id")
+	private String csvRowId;
 }

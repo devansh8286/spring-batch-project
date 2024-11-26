@@ -1,11 +1,11 @@
-id,firstName,lastName,email,gender,contactNo,country,dob
-57366,Elizabeth,Green,angela65@gmail.com,Female,116-363-9994x92645,Burundi,1994-05-03
-30201,Amber,Beck,sean42@gmail.com,Female,(849)476-2537x734,Colombia,2004-11-27
-99102,Anthony,Barnes,rothdakota@hotmail.com,Male,(102)478-8663x7763,Armenia,1992-10-08
-53990,Brian,Lewis,mariasmith@yahoo.com,Male,001-571-694-5428x340,Kyrgyz Republic,1975-01-02
-64329,Christopher,Scott,daniel60@hall.com,Male,565-817-2052,Samoa,1953-05-12
-34655,David,Mathis,christina07@gmail.com,Female,1750529142,British Virgin Islands,1990-05-22
-7900,Anne,James,gevans@jenkins.com,Male,7762829261,Puerto Rico,1984-02-09
-70419,Emily,Frost,amber41@gmail.com,Male,831-346-2535,Algeria,1953-10-12
-61796,Nathaniel,Wilson,dlee@yahoo.com,Female,+1-738-175-7031x0965,Andorra,1951-12-04
-22410,Jennifer,Brown,jonesjill@gmail.com,Male,(523)034-8819x32026,Zimbabwe,2003-09-15
+Customer unique id,first_Name,last_Name,email,gender,contact_No,country,dob
+57366,Elizabeth,Green,angela65@gmail.com,Female,9876543211,Burundi,
+30201,Amber,Beck,sean42@gmail.com,Female,,Colombia,04-05-1994
+99102,Anthony,Barnes,rothdakota@hotmail.com,Male,9876543213,Armenia,08-10-1992
+53990,Brian,Lewis,mariasmith@yahoo.com,Male,9876543214,Kyrgyz Republic,02-01-1975
+64329,Christopher,Scott,daniel60@hall.com,Male,9876543215,Samoa,12-05-1953
+34655,David,Mathis,christina07@gmail.com,Female,9876543216,British Virgin Islands,22-05-1990
+7900,Anne,James,gevans@jenkins.com,Male,9876543217,Puerto Rico,09-02-1984
+70419,Emily,Frost,amber41@gmail.com,Male,9876543218,Algeria,12-10-1953
+61796,Nathaniel,Wilson,dlee@yahoo.com,Female,9876543219,Andorra,04-12-1951
+22410,Jennifer,Brown,jonesjill@gmail.com,Male,9876543220,Zimbabwe,15-09-2003
